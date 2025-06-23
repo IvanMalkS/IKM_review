@@ -6,3 +6,15 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "mvn spring-boot:run"]
+
+[workflows]
+runButton = "Run Spring Boot App"
+
+[[workflows.workflow]]
+name = "Run Spring Boot App"
+author = 27580321
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Shop_ikm && mvn spring-boot:run"
