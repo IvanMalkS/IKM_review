@@ -12,45 +12,6 @@ import java.util.List;
 public class SupplierService {
     private final SupplierRepository supplierRepository;
 
-    public Supplier getSupplierByName(String name) {
-        return supplierRepository.findByName(name); // Assuming you have a method in your repository
-    }
-
-    public void saveSupplier(Supplier supplier) {
-        supplierRepository.save(supplier); // Save the supplier to the database
-    }
-
-    public List<Supplier> listSuppliers() {
-        return supplierRepository.findAll();
-    }
-
-    public Supplier getSupplierById(Long id) {
-        return supplierRepository.findById(id).orElse(null);
-    }
-}
-/* Продолжение задания ИКМ по java */
-/**
- * Сервис для работы с поставщиками товаров.
- * Предоставляет методы для создания, получения и управления поставщиками.
- * Включает валидацию входных данных и обработку ошибок.
- * 
- * @author Система TopShop
- * @version 1.0
- */
-package com.example.TopShop.services;
-
-import com.example.TopShop.models.Supplier;
-import com.example.TopShop.repositories.SupplierRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-
-@Service
-@RequiredArgsConstructor
-public class SupplierService {
-    private final SupplierRepository supplierRepository;
-
     /**
      * Получает поставщика по названию.
      * Используется для поиска существующих поставщиков перед созданием новых.
@@ -63,12 +24,12 @@ public class SupplierService {
             System.out.println("Ошибка: Название поставщика не может быть пустым");
             return null;
         }
-        
+
         if (name.trim().length() < 2 || name.trim().length() > 100) {
             System.out.println("Ошибка: Название поставщика должно содержать от 2 до 100 символов");
             return null;
         }
-        
+
         try {
             return supplierRepository.findByName(name.trim());
         } catch (Exception e) {
@@ -88,29 +49,29 @@ public class SupplierService {
             System.out.println("Ошибка: Попытка сохранить пустого поставщика");
             return;
         }
-        
+
         if (supplier.getName() == null || supplier.getName().trim().isEmpty()) {
             System.out.println("Ошибка: Название поставщика не может быть пустым");
             return;
         }
-        
+
         if (supplier.getName().trim().length() < 2 || supplier.getName().trim().length() > 100) {
             System.out.println("Ошибка: Название поставщика должно содержать от 2 до 100 символов");
             return;
         }
-        
+
         if (supplier.getContact() != null && supplier.getContact().length() > 255) {
             System.out.println("Ошибка: Контактная информация не может превышать 255 символов");
             return;
         }
-        
+
         // Проверяем уникальность названия поставщика
         Supplier existingSupplier = getSupplierByName(supplier.getName());
         if (existingSupplier != null && !existingSupplier.getId().equals(supplier.getId())) {
             System.out.println("Ошибка: Поставщик с таким названием уже существует");
             return;
         }
-        
+
         try {
             supplierRepository.save(supplier);
         } catch (Exception e) {
@@ -150,12 +111,12 @@ public class SupplierService {
             System.out.println("Ошибка: ID поставщика не может быть null");
             return null;
         }
-        
+
         if (id <= 0) {
             System.out.println("Ошибка: ID поставщика должен быть положительным числом");
             return null;
         }
-        
+
         try {
             return supplierRepository.findById(id).orElse(null);
         } catch (Exception e) {
@@ -175,19 +136,19 @@ public class SupplierService {
             System.out.println("Ошибка: ID поставщика не может быть null");
             return;
         }
-        
+
         if (id <= 0) {
             System.out.println("Ошибка: ID поставщика должен быть положительным числом");
             return;
         }
-        
+
         try {
             Supplier supplier = getSupplierById(id);
             if (supplier == null) {
                 System.out.println("Ошибка: Поставщик с ID " + id + " не найден");
                 return;
             }
-            
+
             supplierRepository.deleteById(id);
         } catch (Exception e) {
             System.out.println("Ошибка при удалении поставщика: " + e.getMessage());
