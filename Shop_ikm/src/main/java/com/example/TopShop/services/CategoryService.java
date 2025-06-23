@@ -65,7 +65,6 @@ public class CategoryService {
             return;
         }
         
-        // Проверяем уникальность названия категории
         Category existingCategory = getCategoryByName(category.getName());
         if (existingCategory != null && !existingCategory.getId().equals(category.getId())) {
             System.out.println("Ошибка: Категория с таким названием уже существует");
