@@ -1,3 +1,12 @@
+
+/* Продолжение задания ИКМ по java */
+/**
+ * Сервис для работы с категориями товаров.
+ * Предоставляет методы для создания, получения и управления категориями.
+ * 
+ * @author Система TopShop
+ * @version 1.0
+ */
 package com.example.TopShop.services;
 
 import com.example.TopShop.models.Category;
@@ -32,12 +41,12 @@ public class CategoryService {
             System.out.println("Ошибка: Попытка сохранить пустую категорию");
             return;
         }
-
+        
         if (category.getName() == null || category.getName().trim().isEmpty()) {
             System.out.println("Ошибка: Название категории не может быть пустым");
             return;
         }
-
+        
         try {
             categoryRepository.save(category);
         } catch (Exception e) {
@@ -60,18 +69,17 @@ public class CategoryService {
 
     /**
      * Получает категорию по идентификатору
-     * Возвращает null если категория не найдена
+     * Используется при редактировании товаров
      */
     public Category getCategoryById(Long id) {
         if (id == null || id <= 0) {
-            System.out.println("Ошибка: Некорректный ID категории");
             return null;
         }
-
+        
         try {
             return categoryRepository.findById(id).orElse(null);
         } catch (Exception e) {
-            System.out.println("Ошибка при поиске категории: " + e.getMessage());
+            System.out.println("Ошибка при получении категории по ID: " + e.getMessage());
             return null;
         }
     }
