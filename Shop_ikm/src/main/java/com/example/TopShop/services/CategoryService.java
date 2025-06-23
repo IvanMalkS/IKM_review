@@ -4,18 +4,13 @@
  * Сервис для работы с категориями товаров.
  * Предоставляет методы для создания, получения и управления категориями.
  * Включает валидацию входных данных и обработку ошибок.
- * 
- * @author Система TopShop
- * @version 1.0
  */
 package com.example.TopShop.services;
 
 import com.example.TopShop.models.Category;
 import com.example.TopShop.repositories.CategoryRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor

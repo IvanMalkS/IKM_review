@@ -3,17 +3,11 @@
 /**
  * Модель товара в системе TopShop.
  * Содержит основную информацию о товаре, его категории и поставщике.
- * 
- * @author Система TopShop
- * @version 1.0
  */
 package com.example.TopShop.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")

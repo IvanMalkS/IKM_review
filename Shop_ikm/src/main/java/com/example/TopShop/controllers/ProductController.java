@@ -4,9 +4,6 @@
  * Контроллер для управления товарами в системе TopShop.
  * Обрабатывает HTTP-запросы для создания, чтения, обновления и удаления товаров.
  * Включает валидацию входных данных и обработку ошибок.
- * 
- * @author Система TopShop
- * @version 1.0
  */
 package com.example.TopShop.controllers;
 
@@ -17,8 +14,6 @@ import com.example.TopShop.services.CategoryService;
 import com.example.TopShop.services.ProductService;
 import com.example.TopShop.services.SupplierService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;

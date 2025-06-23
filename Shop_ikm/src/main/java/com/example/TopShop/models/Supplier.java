@@ -3,9 +3,6 @@
 /**
  * Модель поставщика товаров в системе TopShop.
  * Содержит информацию о поставщиках и их контактные данные.
- * 
- * @author Система TopShop  
- * @version 1.0
  */
 package com.example.TopShop.models;
 

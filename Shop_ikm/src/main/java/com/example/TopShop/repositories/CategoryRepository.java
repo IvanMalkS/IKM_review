@@ -4,15 +4,10 @@
  * Репозиторий для работы с категориями товаров.
  * Предоставляет методы доступа к данным категорий в базе данных.
  * Расширяет JpaRepository для получения стандартных CRUD операций.
- * 
- * @author Система TopShop
- * @version 1.0
  */
 package com.example.TopShop.repositories;
 
 import com.example.TopShop.models.Category;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {

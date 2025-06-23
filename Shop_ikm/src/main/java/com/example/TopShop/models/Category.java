@@ -3,20 +3,13 @@
 /**
  * Модель категории товаров в системе TopShop.
  * Используется для группировки товаров по типам.
- * 
- * @author Система TopShop
- * @version 1.0
  */
 package com.example.TopShop.models;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
+
 
 @Entity
 @Table(name = "categories")

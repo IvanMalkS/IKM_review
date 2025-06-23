@@ -3,17 +3,13 @@
  * Предоставляет методы для создания, получения, обновления и удаления товаров.
  * Включает валидацию входных данных и обработку ошибок.
  * 
- * @author Система TopShop
- * @version 1.0
  */
 package com.example.TopShop.services;
 
 import com.example.TopShop.models.Product;
 import com.example.TopShop.repositories.ProductRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor

@@ -1,10 +1,13 @@
+/* Продолжение задания ИКМ по java */
+/**
+ * Сервис для работы с поставшиками.
+ * Предоставляет методы для создания, получения и управления поставшиками.
+ * Включает валидацию входных данных и обработку ошибок.
+ */
 package com.example.TopShop.services;
 
 import com.example.TopShop.models.Supplier;
 import com.example.TopShop.repositories.SupplierRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
