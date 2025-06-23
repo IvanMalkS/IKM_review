@@ -18,3 +18,7 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd Shop_ikm && mvn spring-boot:run"
+
+[[ports]]
+localPort = 6060
+externalPort = 80
