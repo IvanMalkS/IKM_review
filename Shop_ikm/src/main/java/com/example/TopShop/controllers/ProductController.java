@@ -75,7 +75,6 @@ public class ProductController {
                                 @RequestParam String supplierName,
                                 Model model) {
         
-        // Валидация названий категории и поставщика
         if (categoryName == null || categoryName.trim().isEmpty()) {
             System.out.println("Ошибка: Название категории не может быть пустым");
             return "redirect:/";
@@ -85,8 +84,7 @@ public class ProductController {
             System.out.println("Ошибка: Название поставщика не может быть пустым");
             return "redirect:/";
         }
-        
-        // Проверка валидации модели
+
         if (bindingResult.hasErrors()) {
             System.out.println("Ошибка валидации товара: " + bindingResult.getAllErrors());
             model.addAttribute("products", productService.listProducts(null));
@@ -96,7 +94,6 @@ public class ProductController {
         }
 
         try {
-            // Находим или создаем категорию
             Category category = categoryService.getCategoryByName(categoryName.trim());
             if (category == null) {
                 category = new Category();
@@ -104,7 +101,6 @@ public class ProductController {
                 categoryService.saveCategory(category);
             }
 
-            // Находим или создаем поставщика
             Supplier supplier = supplierService.getSupplierByName(supplierName.trim());
             if (supplier == null) {
                 supplier = new Supplier();
@@ -112,7 +108,6 @@ public class ProductController {
                 supplierService.saveSupplier(supplier);
             }
 
-            // Устанавливаем связи и сохраняем товар
             product.setCategory(category);
             product.setSupplier(supplier);
             productService.saveProduct(product);
