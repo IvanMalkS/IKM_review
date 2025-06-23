@@ -68,7 +68,6 @@ public class SupplierService {
             return;
         }
 
-        // Проверяем уникальность названия поставщика
         Supplier existingSupplier = getSupplierByName(supplier.getName());
         if (existingSupplier != null && !existingSupplier.getId().equals(supplier.getId())) {
             System.out.println("Ошибка: Поставщик с таким названием уже существует");
